@@ -13,16 +13,29 @@ const UserSchema = new Schema ({
         unique: true,
         // add email format validation
     },
-    thoughts: {
-        type: Array,
-        // reference thought model
-    },
-    friends: {
-        type: Array,
-        // reference user model
-    }
+    // reference thought model
+    thoughts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Thought'
+        }
+    ],
+    // reference user model
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 })
 
 // create virtual called friendCount that 
 // retrieves the length of user's friends
-// array field om query
+// array field on query
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length
+})
+
+const User = model('User', UserSchema);
+
+module.exports = User;
