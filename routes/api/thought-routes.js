@@ -17,9 +17,8 @@ router
     .route('/:userId/:thoughtId')
     .get(getThoughtById)
     .put(addReaction)
-    .delete(removeThought)
+    .delete(removeThought);
 
-router.route('/:userId/:thoughtId/:reactionId')
-    .delete(removeReaction);
+router.route('/:userId/:thoughtId/:reactionId').delete(removeReaction);
 
 module.exports = router;
