@@ -57,9 +57,9 @@ const thoughtController = {
 
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate(
-            { _id: params.commentId },
+            { _id: params.thoughtId },
             body,
-            { new: true, runValidators: trye }
+            { new: true, runValidators: true }
         )
         .populate(
             {
