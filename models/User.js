@@ -13,6 +13,7 @@ const UserSchema = new Schema (
             required: true,
             unique: true,
             // add email format validation
+            match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
         },
         // reference thought model
         thoughts: [
