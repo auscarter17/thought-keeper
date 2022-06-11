@@ -55,6 +55,29 @@ const thoughtController = {
             })
     },
 
+    updateThought({ params, body }, res) {
+        Thought.findOneAndUpdate(
+            { _id: params.commentId },
+            body,
+            { new: true, runValidators: trye }
+        )
+        .populate(
+            {
+                path: 'reactions',
+                select: '-__v'
+            }
+        )
+        .select('-__v')
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No thought found with this id.' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.json(err));
+    },
+
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
