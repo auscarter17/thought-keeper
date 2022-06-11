@@ -106,7 +106,7 @@ const userController = {
                 select: ('-__v')
             })
             .then(dbUserData => {
-                if (!dbUserDaa) {
+                if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id.' });
                     return;
                 }
