@@ -17,7 +17,7 @@
 
   # Usage
 
-  A video walkthrough of Thought Keeper can be found [here.](videourl)
+  A video walkthrough of Thought Keeper can be found [here.](https://drive.google.com/file/d/1c7XB0aezkB8-RoAyW78cTou-HowU-kOV/view?usp=sharing)
 
   After the API has been set up, open your API client. Refer to the routes inside the 'routes' folder to see how the routes are set up to use the controllers. The included 'models' folder will also show you how to set up each entry when you are sending a POST/PUT. For example, the User model requires a username and email. There are built-in validators to check the email, and an error will occur if an invalid email format is submitted. It will also check for duplicates in the database and reject any repeating information. 
 
