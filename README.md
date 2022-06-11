@@ -25,6 +25,8 @@
 
   A reaction is a reply to another user's thought. Both thoughts and reactions are limited to a 280 character limit, though this limit can be changed by modifying the Thought schema in the models folder. A reaction may also be deleted with a DELETE request as designated in the thought-routes file (for example, localhost:3001/api/>userId/>thoughtId/>reactionId). 
 
+  Users can add or remove other users as friends in Thought Keeper. This can be done with a POST or DELETE request pointed at a URL containing both users' IDs (for example, localhost:3001/api/>userId/friends/>friendId). This will include a record of which users are friends when you send a GET request to users stored in the database.
+
   # Credit
   Created by Austin Carter. 
 
