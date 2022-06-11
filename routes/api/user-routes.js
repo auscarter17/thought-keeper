@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+// take functions from the user controller to apply to routes
 const {
     getAllUser,
     getUserById,

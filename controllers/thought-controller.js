@@ -2,6 +2,7 @@ const res = require('express/lib/response');
 const { User, Thought } = require('../models');
 
 const thoughtController = {
+    // add a new thought to a user
     addThought({ params, body }, res) {
         console.log(body)
         Thought.create(body)

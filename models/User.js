@@ -4,8 +4,10 @@ const UserSchema = new Schema (
     {
         username: {
             type: String,
+            // make sure two users cannot have the same username
             unique: true,
             required: true,
+            // trim whitespace from username
             trim: true
         },
         email: {
@@ -31,6 +33,7 @@ const UserSchema = new Schema (
         ]
     },
     {
+        // give access to virtuals and getters
         toJSON: {
             virtuals: true,
             getters: true
