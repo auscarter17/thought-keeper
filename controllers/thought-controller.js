@@ -26,6 +26,7 @@ const thoughtController = {
         Thought.find({})
             .populate({
                 path: 'username',
+                path: 'reactions',
                 select: '-__v'
             })
             .select('-__v')
