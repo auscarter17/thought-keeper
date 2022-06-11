@@ -27,6 +27,8 @@
 
   Users can add or remove other users as friends in Thought Keeper. This can be done with a POST or DELETE request pointed at a URL containing both users' IDs (for example, localhost:3001/api/>userId/friends/>friendId). This will include a record of which users are friends when you send a GET request to users stored in the database.
 
+  ![gif of walkthrough](./media/walkthrough.gif)
+
   # Credit
   Created by Austin Carter. 
 
