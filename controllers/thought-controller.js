@@ -13,13 +13,44 @@ const thoughtController = {
                 );
             })
             .then(dbUserData => {
-                if (dbUserData) {
+                if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id.'});
                     return;
                 }
                 res.json(dbUserData);
             })
             .catch(err => res.json(err));
+    },
+
+    getAllThought(req, res) {
+        Thought.find({})
+            .populate({
+                path: 'username',
+                select: '-__v'
+            })
+            .select('-__v')
+            .sort({ _id: 01 })
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            })
+    },
+
+    getThoughtById({ params }, res) {
+        Thought.findOne({ _id: params.thoughtId })
+            .populate({
+                path: 'thoughtText',
+                select: '-__v'
+            })
+            .select('-__v')
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No comment found with this id.' });
+                    return;
+                }
+                res.json(dbUserData)
+            })
     },
 
     addReaction({ params, body }, res) {
@@ -30,7 +61,7 @@ const thoughtController = {
         )
             .then(dbUserData => {
                 if (!dbUserData) {
-                    res.status(404).json({ message: 'No user found with this id.' });
+                    res.status(404).json({ message: 'No comment found with this id.' });
                     return;
                 }
                 res.json(dbUserData);
@@ -58,7 +89,7 @@ const thoughtController = {
                 }
                 res.json(dbUserData);
             })
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     },
 
     // remove reaction
